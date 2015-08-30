@@ -34,7 +34,7 @@ define(function(require, exports, module) {
             }), 400, plugin);
             
             settings.on("read", function(e){
-                settings.setDefaults("user/my-plugin", [
+                settings.setDefaults("user/ace-minimap", [
                     ["first", "1"],
                     ["second", "all"]
                 ]);
@@ -47,12 +47,12 @@ define(function(require, exports, module) {
                         position: 100,
                         "First Setting": {
                             type: "checkbox",
-                            setting: "user/my-plugin/@first",
+                            setting: "user/ace-minimap/@first",
                             position: 100
                         },
                         "Second Setting": {
                             type: "dropdown",
-                            setting: "user/my-plugin/@second",
+                            setting: "user/ace-minimap/@second",
                             width: "185",
                             position: 200,
                             items: [
@@ -88,7 +88,7 @@ define(function(require, exports, module) {
             
             var div = document.querySelector(".helloworld");
             div.style.display = "block";
-            div.innerHTML = settings.get("user/my-plugin/@second");
+            div.innerHTML = settings.get("user/ace-minimap/@second");
             
             emit("show");
             showing = true;
