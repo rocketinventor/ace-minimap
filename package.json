@@ -14,7 +14,7 @@
     "url": "https://github.com/rocketinventor/ace-minimap"
   },
   "plugins": {
-    "plugin": {}
+    "minimap": {}
   },
   "categories": ["utilities"],
   "licenses": []

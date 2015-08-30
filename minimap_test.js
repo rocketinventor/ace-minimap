@@ -2,13 +2,13 @@
 "use mocha";
 
 define(function(require, exports, module) {
-    main.consumes = ["plugin.test", "myplugin"];
+    main.consumes = ["plugin.test", "minimap"];
     main.provides = [];
     return main;
 
     function main(options, imports, register) {
         var test = imports["plugin.test"];
-        var myplugin = imports.myplugin;
+        var minimap = imports.minimap;
         
         var describe = test.describe;
         var it = test.it;

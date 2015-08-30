@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
     main.consumes = ["Plugin"];
-    main.provides = ["myplugin"];
+    main.provides = ["minimap"];
     return main;
 
     function main(options, imports, register) {
@@ -35,7 +35,7 @@ define(function(require, exports, module) {
         });
         
         register(null, {
-            "myplugin": plugin
+            "minimap": plugin
         });
     }
 });
