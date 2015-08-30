@@ -1,13 +1,15 @@
 .minimap {
-    position: fixed;
-    z-index: 65534;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    width: 777px;
-    transform: scale(0.1);
-    top: -540px;
-    right: -354.85px;
+    padding: 10px;
+    background: red;
+    position: absolute;
+    right: 10px;
+    top: 100px;
+    z-index: 50000;
+    width: 200px;
+    height: 400px;
+    /*background: url("@{image-path}/puppy.jpg");*/
+    box-sizing: border-box;
+    color: white;
 }
 
 .youarehere {
@@ -20,7 +22,7 @@
     border: 2px solid black;
     width: 80.8px;
     height: 63.3px;
-    top: 16.3px;
+    /*top: 16.3px;*/
 }
 
 .overview {
