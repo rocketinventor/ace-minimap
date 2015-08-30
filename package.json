@@ -1,8 +1,8 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Ace Minimap",
+  "description": "Add a minimap to ace text editor",
   "version": "0.0.1",
-  "author": "",
+  "author": "Elliot Gerchak",
   "contributors": [
     {
       "name": "",
@@ -11,11 +11,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/rocketinventor/ace-minimap"
   },
   "plugins": {
     "plugin": {}
   },
-  "categories": ["miscellaneous"],
+  "categories": ["utilities"],
   "licenses": []
 }
