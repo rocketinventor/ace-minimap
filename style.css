@@ -4,12 +4,17 @@
     position: absolute;
     right: 10px;
     top: 100px;
-    z-index: 50000;
-    width: 200px;
+    z-index: 65534;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    width: 77.7px;
     height: 400px;
+    font-size: 6px;
     /*background: url("@{image-path}/puppy.jpg");*/
     box-sizing: border-box;
     color: white;
+    
 }
 
 .youarehere {
@@ -25,14 +30,10 @@
     /*top: 16.3px;*/
 }
 
-.overview {
-    position: fixed;
-    z-index: 65534;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    width: 777px;
-    transform: scale(0.1);
-    top: -540px;
-    right: -354.85px;
-}
+/*.overview {*/
+/*    position: fixed;*/
+/*    width: 777px;*/
+/*    transform: scale(0.1);*/
+/*    top: -540px;*/
+/*    right: -354.85px;*/
+/*}*/

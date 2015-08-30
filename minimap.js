@@ -79,14 +79,9 @@ define(function(require, exports, module) {
             draw();
             
             var div = document.querySelector(".minimap");
-            var youarehere_style = document.querySelector(".youarehere").style;
-            var minimap_style = div.style;
             div.style.display = "block";
             div.style.backgroundColor = settings.get("user/ace-minimap/@theme");
             // div.innerHTML = settings.get("user/ace-minimap/@theme");
-            
-            youarehere_style.width = innerWidth * scaleFactor + "px";
-            youarehere_style.height = innerHeight * scaleFactor + "px";
             
             emit("show");
             showing = true;
