@@ -21,7 +21,7 @@ define(function(require, exports, module) {
         var showing;
         function load() {
             commands.addCommand({
-                name: "mycommand",
+                name: "minimap",
                 bindKey: { mac: "Command-I", win: "Ctrl-I" },
                 isAvailable: function(){ return true; },
                 exec: function() {
@@ -35,30 +35,22 @@ define(function(require, exports, module) {
             
             settings.on("read", function(e){
                 settings.setDefaults("user/ace-minimap", [
-                    ["first", "1"],
-                    ["second", "all"]
+                    ["Theme", "dark"]
                 ]);
             });
             
             prefs.add({
-                "Example" : {
-                    position: 450,
-                    "My Plugin" : {
-                        position: 100,
-                        "First Setting": {
-                            type: "checkbox",
-                            setting: "user/ace-minimap/@first",
-                            position: 100
-                        },
-                        "Second Setting": {
+                "General" : {
+                    position: 10,
+                    "Minimap" : {
+                        position: 15,
+                        "Theme": {
                             type: "dropdown",
-                            setting: "user/ace-minimap/@second",
-                            width: "185",
-                            position: 200,
+                            setting: "user/ace-minimap/@theme",
+                            position: 1000,
                             items: [
-                                { value: "you", caption: "You" },
-                                { value: "me", caption: "Me" },
-                                { value: "all", caption: "All" }
+                                { value: "black", caption: "Dark" },
+                                { value: "gray", caption: "Light" }
                             ]
                         }
                     }
@@ -86,9 +78,10 @@ define(function(require, exports, module) {
         function show() {
             draw();
             
-            var div = document.querySelector(".helloworld");
+            var div = document.querySelector(".minimap");
             div.style.display = "block";
-            div.innerHTML = settings.get("user/ace-minimap/@second");
+            div.style.backgroundColor = settings.get("user/ace-minimap/@theme");
+            // div.innerHTML = settings.get("user/ace-minimap/@theme");
             
             emit("show");
             showing = true;
@@ -97,7 +90,7 @@ define(function(require, exports, module) {
         function hide() {
             if (!drawn) return;
             
-            document.querySelector(".helloworld").style.display = "none";
+            document.querySelector(".minimap").style.display = "none";
             
             emit("hide");
             showing = false;
