@@ -19,6 +19,8 @@
 }
 
 .youarehere {
+    background-color: #888;
+    opacity: .2;
     position: fixed;
     z-index: 65535;
     -webkit-user-select: none;

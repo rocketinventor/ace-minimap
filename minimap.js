@@ -22,14 +22,14 @@ define(function(require, exports, module) {
         function load() {
             commands.addCommand({
                 name: "minimap",
-                bindKey: { mac: "Command-I", win: "Ctrl-I" },
+                bindKey: { mac: "Command-M", win: "Ctrl-M" },
                 isAvailable: function(){ return true; },
                 exec: function() {
                     showing ? hide() : show();
                 }
             }, plugin);
             
-            menus.addItemByPath("View/Display Minimap", new ui.item({
+            menus.addItemByPath("View/Minimap", new ui.item({
                 command: "minimap"
             }), 400, plugin);
             
@@ -69,7 +69,7 @@ define(function(require, exports, module) {
                             position: 1000,
                             items: [
                                 { value: "ace_editor", caption: "Automatic" },
-                                { value: "", caption: "Dark" },
+                                { value: "black", caption: "Dark" },
                                 { value: "gray", caption: "Light" },
                                 { value: "rgba(0, 0, 0, 0)", caption: "None" }
                             ]
