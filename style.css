@@ -1,15 +1,14 @@
 .minimap {
-    padding: 10px;
     /*background: red;*/
     opacity: 0.7;
     position: absolute;
-    right: 10px;
+    right: 40px;
     top: 100px;
     z-index: 65534;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    width: 77.7px;
+    width: 80.8px;
     height: 400px;
     font-size: 6px;
     /*background: url("@{image-path}/puppy.jpg");*/
@@ -26,7 +25,7 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    right: 0px;
+    right: 38;
     border: 2px solid black;
     width: 80.8px;
     height: 63.3px;
