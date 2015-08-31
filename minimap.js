@@ -35,7 +35,8 @@ define(function(require, exports, module) {
             
             settings.on("read", function(e){
                 settings.setDefaults("user/ace-minimap", [
-                    ["Theme", "dark"]
+                    ["Theme", "ace_editor"],
+                    ["Opacity", ".70"]
                 ]);
             });
             
@@ -44,13 +45,33 @@ define(function(require, exports, module) {
                     position: 10,
                     "Minimap" : {
                         position: 15,
-                        "Theme": {
+                        // "Opacity": {
+                        //     type: "dropdown",
+                        //     setting: "user/my-plugin/@opacity",
+                        //     width: "75",
+                        //     position: 2000,
+                        //     items: [
+                        //         { value: "1.0", caption: "100%" },
+                        //         { value: "0.9", caption: "90%" },
+                        //         { value: "0.8", caption: "80%" },
+                        //         { value: "0.7", caption: "70%" },
+                        //         { value: "0.6", caption: "60%" },
+                        //         { value: "0.5", caption: "50%" },
+                        //         { value: "0.4", caption: "40%" },
+                        //         { value: "0.3", caption: "30%" },
+                        //         { value: "0.2", caption: "20%" },
+                        //         { value: "0.15", caption: "15%" }
+                        //     ]
+                        // },
+                        "Background Color": {
                             type: "dropdown",
                             setting: "user/ace-minimap/@theme",
                             position: 1000,
                             items: [
-                                { value: "black", caption: "Dark" },
-                                { value: "gray", caption: "Light" }
+                                { value: "ace_editor", caption: "Automatic" },
+                                { value: "", caption: "Dark" },
+                                { value: "gray", caption: "Light" },
+                                { value: "rgba(0, 0, 0, 0)", caption: "None" }
                             ]
                         }
                     }
@@ -80,7 +101,20 @@ define(function(require, exports, module) {
             
             var div = document.querySelector(".minimap");
             div.style.display = "block";
-            div.style.backgroundColor = settings.get("user/ace-minimap/@theme");
+            if (settings.get("user/ace-minimap/@theme") == "ace_editor") {
+                var elem1 = document.getElementsByClassName("ace_editor")[0];
+                var color = window.getComputedStyle(elem1, null).backgroundColor;
+                div.style.backgroundColor = color;
+            } else {
+                div.style.backgroundColor = settings.get("user/ace-minimap/@theme");
+            }
+            
+            // var opacity = settings.get("user/ace-minimap/@opacity");
+            // div.style.opacity = opacity;
+            // div.setAttribute("style","opacity:" + opacity + ";)");
+            // div.setAttribute("style"," -moz-opacity:" + opacity + ";)");
+            // div.setAttribute("style","filter:alpha(opacity=" + opacity * 10 + ")");
+            // div.setAttribute("style","opacity:0.5; -moz-opacity:0.5; filter:alpha(opacity=50)");
             // div.innerHTML = settings.get("user/ace-minimap/@theme");
             
             emit("show");

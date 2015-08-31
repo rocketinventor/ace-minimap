@@ -1,6 +1,7 @@
 .minimap {
     padding: 10px;
-    background: red;
+    /*background: red;*/
+    opacity: 0.7;
     position: absolute;
     right: 10px;
     top: 100px;
