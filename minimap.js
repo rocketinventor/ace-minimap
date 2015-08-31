@@ -36,7 +36,8 @@ define(function(require, exports, module) {
             settings.on("read", function(e){
                 settings.setDefaults("user/ace-minimap", [
                     ["Theme", "ace_editor"],
-                    ["Opacity", ".70"]
+                    // ["Opacity", ".70"],
+                    // ["Autostart", "1"]
                 ]);
             });
             
@@ -62,6 +63,11 @@ define(function(require, exports, module) {
                         //         { value: "0.2", caption: "20%" },
                         //         { value: "0.15", caption: "15%" }
                         //     ]
+                        // },
+                        // "Autostart": {
+                        //     type: "checkbox",
+                        //     setting: "user/my-plugin/@autostart",
+                        //     position: 10000
                         // },
                         "Background Color": {
                             type: "dropdown",
@@ -101,6 +107,9 @@ define(function(require, exports, module) {
             
             var div = document.querySelector(".minimap");
             div.style.display = "block";
+            // var doc = tab.document;
+            // var value = doc.value;
+            // div.value = value;
             if (settings.get("user/ace-minimap/@theme") == "ace_editor") {
                 var elem1 = document.getElementsByClassName("ace_editor")[0];
                 var color = window.getComputedStyle(elem1, null).backgroundColor;
@@ -134,11 +143,19 @@ define(function(require, exports, module) {
         
         plugin.on("load", function() {
             load();
+                // if (settings.get("user/ace-minimap/@autostart") == 1) 
+                    show();
         });
+        
         plugin.on("unload", function() {
             drawn = false;
             showing = false;
         });
+        
+        settings.on("user/ace-minimap/@theme", function(value) {
+            console.log("Value changed to:", value);
+            show();
+        }, plugin);
         
         /***** Register and define API *****/
         
