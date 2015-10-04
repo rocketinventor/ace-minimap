@@ -89,10 +89,25 @@ define(function(require, exports, module) {
         function draw() {
             if (drawn) return;
             drawn = true;
-            
-            // Insert HTML
-            var markup = require("text!./plugin.html");
-            ui.insertHtml(document.body, markup, plugin);
+
+            // Insert HTML and CSS
+
+            // find the parentNode of the third scrollbar; it should be the text editor one.
+            var scrollbar = document.getElementsByClassName("ace_scrollbar-inner")[2];
+            // make the it wider
+            scrollbar.parentNode.style.width = "110px";
+
+            // create parent element inside scrollbar
+            var minimap = document.createElement("div");
+            scrollbar.appendChild(minimap);
+            // set Id of new div
+            minimap.id = "minimap";
+            minimap = document.getElementById("minimap");
+
+            // create "youarehere"
+            var youarehere = document.createElement("div");
+            minimap.appendChild(youarehere);
+            youarehere.id = "youarehere";
             
             // Insert CSS
             ui.insertCss(require("text!./style.css"), options.staticPrefix, plugin);
@@ -105,13 +120,10 @@ define(function(require, exports, module) {
         function show() {
             draw();
             
-            var div = document.querySelector(".minimap");
+            var div = document.getElementById("minimap");
             div.style.display = "block";
-            // var doc = tab.document;
-            // var value = doc.value;
-            // div.value = value;
             if (settings.get("user/ace-minimap/@theme") == "ace_editor") {
-                var elem1 = document.getElementsByClassName("ace_editor")[0];
+                var elem1 = document.querySelector("ace_editor");
                 var color = window.getComputedStyle(elem1, null).backgroundColor;
                 div.style.backgroundColor = color;
             } else {
@@ -133,7 +145,7 @@ define(function(require, exports, module) {
         function hide() {
             if (!drawn) return;
             
-            document.querySelector(".minimap").style.display = "none";
+            document.getElementById("minimap").style.display = "none";
             
             emit("hide");
             showing = false;
